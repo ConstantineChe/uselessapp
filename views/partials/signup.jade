@@ -1,0 +1,16 @@
+h1 Signup
+form.form-horizontal(role='form')
+   .form-group
+        label.control-label(for='name') Name:
+        input#name.form-control(ng-model='user.name', name='name', type='text')
+   .form-group
+        label.control-label(for='email') Email:
+        input#email.form-control(ng-model='user.email', name='email', type='email')
+   .form-group
+        label.control-label(for='password') Password:
+        input#password.form-control(ng-model='user.password', name='password', type='password')
+   .form-group
+        label.control-label(for='conf-password') Confirm password:
+        input#conf-password.form-control(ng-model='user.confPassword', name='conf-password', type='password')
+   .form-group
+        button.btn.btn-primary(ng-click='signup()') Signup

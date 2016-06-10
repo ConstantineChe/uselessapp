@@ -1,0 +1,29 @@
+.container-fluid(ng-controller='BoardCtrl')
+    h1 This is the useless board.
+    form.form-horizontal
+        legend New thread
+        .form-group
+            label.control-label(form='title') Title
+            input.form-control(ng-model='post.title', type='text', id='title', name='title')
+        .form-group
+            label.control-label(form='message') Message
+            textarea.form-control(ng-model='post.text', id='message', name='message', required='true')
+        .form-group
+            button.btn.btn-primary(ng-click='publish()') Post
+     legend Threads:
+  div(ng-repeat='thread in threads track by $index')
+      .container(style="border: 1px solid grey;")
+           h4 {{thread.openPost.author.name}} |
+             strong | {{thread.openPost.title}}
+             span.pull-right {{thread.openPost.date}}
+
+           p {{thread.openPost.text}}
+           a(ng-href='/thread/{{thread._id}}') show thread
+           .container-fluid.posts(ng-repeat='post in thread.posts track by $index')
+             .conteiner(style="border: 1px solid grey;")
+               h4 {{post.author.name}} |
+                strong | {{post.title}}
+                span.pull-right {{post.date}}
+               p {{post.text}}
+               br
+           br

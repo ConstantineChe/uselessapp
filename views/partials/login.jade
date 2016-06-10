@@ -1,0 +1,14 @@
+h1 login
+
+form.form-horizontal(role='form')
+   .form-group
+        label.control-label(for='email') Email:
+        input#email.form-control(ng-model='user.email', name='email', type='email')
+   .form-group
+        label.control-label(for='password') Password:
+        input#password.form-control(ng-model='user.password', name='password', type='password')
+   .form-group
+        button.btn.btn-primary(ng-click='login()') Login
+p
+  | Showing of 'interpolate' filter:
+  | {{ 'Current version is v%VERSION%.' | interpolate }}

@@ -2,10 +2,13 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives','ngRoute']).
+var app = angular.module('myApp',
+                         ['uselessApp.filters', 'uselessApp.services', 'uselessApp.directives','ngRoute', 'btford.socket-io']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider.when('/view1', {templateUrl: 'partial/1', controller: MyCtrl1});
-    $routeProvider.when('/view2', {templateUrl: 'partial/2', controller: MyCtrl2});
-    $routeProvider.otherwise({redirectTo: '/view1'});
+      $routeProvider.when('/board', {templateUrl: 'partial/board', controller: BoardCtrl});
+      $routeProvider.when('/login', {templateUrl: 'partial/login', controller: LoginCtrl});
+      $routeProvider.when('/signup', {templateUrl: 'partial/signup', controller: SignupCtrl});
+      $routeProvider.when('/thread/:id', {templateUrl: 'partial/thread', controller: ThreadCtrl});
+    $routeProvider.otherwise({redirectTo: '/board'});
     $locationProvider.html5Mode(true);
   }]);
